@@ -1,12 +1,15 @@
 {
-  "name": "google-agent",
+  "name": "nodejs-agent",
   "version": "1.0.0",
   "description": "基於 Google Generative AI 與 RAG 技術的智能助理框架",
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "start": "node server.js",
+    "dev": "nodemon server.js",
+    "start:azure": "node server.azure.js",
+    "dev:azure": "nodemon server.azure.js",
     "ingest": "node ingest.js",
-    "dev": "nodemon server.js"
+    "ingest:azure": "node ingest.azure.js"
   },
   "dependencies": {
     "@google/genai": "^1.34.0",
@@ -17,6 +20,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "langchain": "^1.2.3",
+    "openai": "^6.15.0",
     "pdf-parse": "1.1.1",
     "pg": "^8.16.3"
   },

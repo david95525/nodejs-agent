@@ -1,4 +1,4 @@
-# Gemini-Agent Framework (RAG + Tool Use + Memory)
+# nodejs-agent (RAG + Tool Use + Memory)
 
 這是一個基於 **Gemini 2.0 Flash** 構建的全功能 AI Agent 實驗專案。
 本專案旨在驗證如何整合向量資料庫 (RAG)、外部工具呼叫 (Function Calling) 與對話記憶機制，打造一個具備私有知識庫能力的智能助手。
@@ -7,7 +7,7 @@
 
 ## 🚀 核心技術架構
 
-- **LLM 模型**: Google Gemini 2.0 Flash (支援高效能生成與工具呼叫)
+- **LLM 模型**: Google Gemini 2.0 Flash (支援高效能生成與工具呼叫)/azure open ai
 - **向量資料庫**: PostgreSQL + `pgvector` (用於儲存與檢索 PDF 嵌入向量)
 - **開發框架**: 
   - **Node.js**: 後端執行環境
@@ -32,10 +32,16 @@
 
 ### 1. 環境準備
 建立 `.env` 檔案並設定以下變數：
+```
 env
+# Google Gemini API 金鑰
 GEMINI_API_KEY=你的金鑰
-DATABASE_URL=postgres://postgres:你的密碼@127.0.0.1:5432/postgres
 
+# 伺服器埠號 (預設為 3000)
+PORT=3000
+# PostgreSQL 連線字串 (含 pgvector 擴充)
+DATABASE_URL=postgres://postgres:你的密碼@127.0.0.1:5432/postgres
+```
 ### 2. 安裝與執行
 # 安裝相依套件
 yarn install

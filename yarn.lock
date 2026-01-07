@@ -1318,24 +1318,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gemini-agent@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "gemini-agent@workspace:."
-  dependencies:
-    "@google/genai": "npm:^1.34.0"
-    "@langchain/community": "npm:^1.1.1"
-    "@langchain/core": "npm:^1.1.8"
-    "@langchain/google-genai": "npm:^2.1.3"
-    "@langchain/textsplitters": "npm:^1.0.1"
-    dotenv: "npm:^17.2.3"
-    express: "npm:^5.2.1"
-    langchain: "npm:^1.2.3"
-    nodemon: "npm:^3.1.11"
-    pdf-parse: "npm:1.1.1"
-    pg: "npm:^8.16.3"
-  languageName: unknown
-  linkType: soft
-
 "generator-function@npm:^2.0.0":
   version: 2.0.1
   resolution: "generator-function@npm:2.0.1"
@@ -1409,6 +1391,25 @@ __metadata:
   checksum: 10c0/8e2f5821f3f7c312dd102e23a15b80c79e0837a9872784293ba2e15ec73b3f3749a49a42a31bfcb4e52c84820a474e92331c2eebf18819d20308f5c33876630a
   languageName: node
   linkType: hard
+
+"google-agent@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "google-agent@workspace:."
+  dependencies:
+    "@google/genai": "npm:^1.34.0"
+    "@langchain/community": "npm:^1.1.1"
+    "@langchain/core": "npm:^1.1.8"
+    "@langchain/google-genai": "npm:^2.1.3"
+    "@langchain/textsplitters": "npm:^1.0.1"
+    dotenv: "npm:^17.2.3"
+    express: "npm:^5.2.1"
+    langchain: "npm:^1.2.3"
+    nodemon: "npm:^3.1.11"
+    openai: "npm:^6.15.0"
+    pdf-parse: "npm:1.1.1"
+    pg: "npm:^8.16.3"
+  languageName: unknown
+  linkType: soft
 
 "google-auth-library@npm:^10.3.0":
   version: 10.5.0
@@ -2095,7 +2096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openai@npm:^6.10.0":
+"openai@npm:^6.10.0, openai@npm:^6.15.0":
   version: 6.15.0
   resolution: "openai@npm:6.15.0"
   peerDependencies:

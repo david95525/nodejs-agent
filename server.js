@@ -23,7 +23,7 @@ const pgConfig = {
   postgresConnectionOptions: {
     connectionString: process.env.DATABASE_URL,
   },
-  tableName: "bp_docs",
+  tableName: "bp_docs_gemini",
   columns: {
     idColumnName: "id",
     vectorColumnName: "embedding",
@@ -47,6 +47,8 @@ async function callWithRetry(fn, retries = 1, initialDelay = 3000) {
 }
 
 // --- 3. 工具定義 (保持不變) ---
+// 暫時註解：如果需要展示 Agent 呼叫外部 API 的能力，可啟用此區塊
+/*
 const getStockPrice = async (args) => {
   const prices = { "AAPL": 220, "TSLA": 180, "GOOGL": 150 };
   return { price: prices[args.symbol.toUpperCase()] || "查無此代號" };
@@ -64,7 +66,7 @@ const agentTools = [{
     }
   }]
 }];
-
+*/
 // 在 app 外部定義記憶體，以 userId 為 key 存儲對話陣列
 const chatHistoryMap = new Map();
 
@@ -107,13 +109,13 @@ app.post('/chat', async (req, res) => {
       return await ai.models.generateContent({
         model: "gemini-2.0-flash",
         contents: contents,
-        tools: agentTools
+       // tools: agentTools
       });
     });
 
-    let finalResponseText = "";
+    let finalResponseText = "";    
+    /* 暫時註解：處理 Function Calling 的邏輯
     const functionCall = response.functionCalls?.[0];
-
     if (functionCall) {
       console.log(`AI 決定執行工具: ${functionCall.name}`, functionCall.args);
       const toolResult = await getStockPrice(functionCall.args);
@@ -122,9 +124,9 @@ app.post('/chat', async (req, res) => {
         return await ai.models.generateContent({
           model: "gemini-2.0-flash",
           contents: [
-            ...contents,
+            ...history, // 確保這裡使用的是你的對話紀錄變數
             { role: "model", parts: [{ functionCall: functionCall }] },
-            { role: "user", parts: [{ functionResponse: { name: "getStockPrice", response: toolResult } }] }
+            { role: "user", parts: [{ functionResponse: { name: functionCall.name, response: toolResult } }] }
           ]
         });
       });
@@ -132,6 +134,8 @@ app.post('/chat', async (req, res) => {
     } else {
       finalResponseText = response.text;
     }
+    */
+    finalResponseText = response.text;
 
     // 3. 更新記憶體：儲存「原始問題」與「AI回答」，不存 RAG 參考資料以節省 Token
     history.push({ role: "user", parts: [{ text: message }] });
@@ -150,4 +154,5 @@ app.post('/chat', async (req, res) => {
     res.status(500).json({ text: "伺服器暫時無法回應。" });
   }
 });
-app.listen(3000, () => console.log('🛡️ RAG + Tool-use Agent 啟動於 http://localhost:3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🛡️ 伺服器啟動於埠號 http://localhost:${PORT}`));

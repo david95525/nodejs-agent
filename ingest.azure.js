@@ -13,7 +13,7 @@ const pgConfig = {
   postgresConnectionOptions: {
     connectionString: process.env.DATABASE_URL,
   },
-  tableName: "bp_docs_gemini", // 表名改為 bp (Blood Pressure)
+  tableName: "bp_docs_azure", // 表名改為 bp (Blood Pressure)
   columns: {
     idColumnName: "id",
     vectorColumnName: "embedding",
@@ -42,7 +42,7 @@ async function run() {
       modelName: "text-embedding-004",
     });
 
-    // 這一步會自動在 Postgres 建立 bp_docs_gemini 表格（如果不存在）
+    // 這一步會自動在 Postgres 建立 bp_docs 表格（如果不存在）
     await PGVectorStore.fromDocuments(docs, embeddings, pgConfig);
 
     console.log("✅ 成功！血壓計知識庫已建立。你的 Agent 現在是血壓計專家了！");
