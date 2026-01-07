@@ -1392,25 +1392,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-agent@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "google-agent@workspace:."
-  dependencies:
-    "@google/genai": "npm:^1.34.0"
-    "@langchain/community": "npm:^1.1.1"
-    "@langchain/core": "npm:^1.1.8"
-    "@langchain/google-genai": "npm:^2.1.3"
-    "@langchain/textsplitters": "npm:^1.0.1"
-    dotenv: "npm:^17.2.3"
-    express: "npm:^5.2.1"
-    langchain: "npm:^1.2.3"
-    nodemon: "npm:^3.1.11"
-    openai: "npm:^6.15.0"
-    pdf-parse: "npm:1.1.1"
-    pg: "npm:^8.16.3"
-  languageName: unknown
-  linkType: soft
-
 "google-auth-library@npm:^10.3.0":
   version: 10.5.0
   resolution: "google-auth-library@npm:10.5.0"
@@ -2032,6 +2013,25 @@ __metadata:
   checksum: 10c0/f43efea8aaf0beb6b2f6184e533edad779b2ae38062953e21951f46221dd104006cc574154f2ad4a135467a5aae92c49e84ef289311a82e08481c5df0e8dc495
   languageName: node
   linkType: hard
+
+"nodejs-agent@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "nodejs-agent@workspace:."
+  dependencies:
+    "@google/genai": "npm:^1.34.0"
+    "@langchain/community": "npm:^1.1.1"
+    "@langchain/core": "npm:^1.1.8"
+    "@langchain/google-genai": "npm:^2.1.3"
+    "@langchain/textsplitters": "npm:^1.0.1"
+    dotenv: "npm:^17.2.3"
+    express: "npm:^5.2.1"
+    langchain: "npm:^1.2.3"
+    nodemon: "npm:^3.1.11"
+    openai: "npm:^6.15.0"
+    pdf-parse: "npm:1.1.1"
+    pg: "npm:^8.16.3"
+  languageName: unknown
+  linkType: soft
 
 "nodemon@npm:^3.1.11":
   version: 3.1.11
